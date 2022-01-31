@@ -151,3 +151,39 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+test_states = [
+{
+    "name": "Alabama",
+    "capital": "Montgomery"
+}, {
+    "name": "Alaska",
+    "capital": "Juneau"
+}, {
+    "name": "Arizona",
+    "capital": "Phoenix"
+}]
+
+correct_states = []
+
+import os
+
+for test_state in test_states:
+    answer = input(f"What is the capital of {test_state['name']} ")
+    if answer == test_state['capital']:
+        print('correct')
+        test_state['correct'] = +1
+        print(f"Number of times correct {test_state['correct']}")
+        correct_states.append(test_state)
+        print(correct_states)
+    elif answer != test_state['capital']:
+        print('WRONG!!!!!!!!')
+        test_state['wrong'] = +1
+        print(f"Number of times wrong {test_state['wrong']}")
+    
+    #os.system('python3 "/Users/sam/sei/Labs/py_capitals/capitals_game.py" ')
+        
+    
+    
+
+
