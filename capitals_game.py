@@ -177,37 +177,33 @@ correct_states = []
 wrong_states = []
 import random
 import os
-random.shuffle(test_states)
+random.shuffle(states)
 
 correct = 0
 wrong = 0
 
 print('___________CAPITALS GAME_________________')
-
-
-
-
 starting = input("Would you like to play? yes or no?: ")
 if starting == 'no':
     print("Too Bad :(")
     exit()
 elif starting == 'yes':
     print("Let's Play")
-    for test_state in test_states:
-        answer = input(f"What is the capital of {test_state['name']} ")
-        if answer == test_state['capital']:
+    for state in states:
+        answer = input(f"What is the capital of {state['name']} ")
+        if answer == state['capital']:
             print('correct')
             correct += 1
             print(f"Number of times correct {correct}")
             print(f"Number of times wrong {wrong}")
-            correct_states.append(test_state)
+            correct_states.append(state)
             print(correct_states)
-        elif answer != test_state['capital']:
+        elif answer != state['capital']:
             print('WRONG!!!!!!!!')
             wrong += 1
             print(f"Number of times wrong {wrong}")
             print(f"Number of times correct {correct}")
-            wrong_states.append(test_state)
+            wrong_states.append(state)
 print(f"Game Over! Amount Correct: {correct} Amount Wrong: {wrong}")
 if wrong == 0:
     print("You got a Perfect Score!!!!")
@@ -216,7 +212,6 @@ elif correct == 0:
 else:
     print(f"Capitals you got wrong: {wrong_states}")
     print(f"Capitals you got correct: {correct_states}")
-    
 start_over= input("Play Again? yes or no?: ")
 if start_over == 'no':
     print("Goodbye")
