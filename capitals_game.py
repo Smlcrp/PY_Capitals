@@ -162,26 +162,79 @@ test_states = [
 }, {
     "name": "Arizona",
     "capital": "Phoenix"
+}, {
+    "name": "Texas",
+    "capital": "Austin"
+}, {
+    "name": "Utah",
+    "capital": "Salt Lake City"
+}, {
+    "name": "Vermont",
+    "capital": "Montpelier"
 }]
 
 correct_states = []
-
+wrong_states = []
+import random
 import os
+random.shuffle(test_states)
 
-for test_state in test_states:
-    answer = input(f"What is the capital of {test_state['name']} ")
-    if answer == test_state['capital']:
-        print('correct')
-        test_state['correct'] = +1
-        print(f"Number of times correct {test_state['correct']}")
-        correct_states.append(test_state)
-        print(correct_states)
-    elif answer != test_state['capital']:
-        print('WRONG!!!!!!!!')
-        test_state['wrong'] = +1
-        print(f"Number of times wrong {test_state['wrong']}")
+correct = 0
+wrong = 0
+
+print('___________CAPITALS GAME_________________')
+
+
+
+
+starting = input("Would you like to play? yes or no?: ")
+if starting == 'no':
+    print("Too Bad :(")
+    exit()
+elif starting == 'yes':
+    print("Let's Play")
+    for test_state in test_states:
+        answer = input(f"What is the capital of {test_state['name']} ")
+        if answer == test_state['capital']:
+            print('correct')
+            correct += 1
+            print(f"Number of times correct {correct}")
+            print(f"Number of times wrong {wrong}")
+            correct_states.append(test_state)
+            print(correct_states)
+        elif answer != test_state['capital']:
+            print('WRONG!!!!!!!!')
+            wrong += 1
+            print(f"Number of times wrong {wrong}")
+            print(f"Number of times correct {correct}")
+            wrong_states.append(test_state)
+print(f"Game Over! Amount Correct: {correct} Amount Wrong: {wrong}")
+if wrong == 0:
+    print("You got a Perfect Score!!!!")
+elif correct == 0:
+    print("You Suck At This!")
+else:
+    print(f"Capitals you got wrong: {wrong_states}")
+    print(f"Capitals you got correct: {correct_states}")
     
-    #os.system('python3 "/Users/sam/sei/Labs/py_capitals/capitals_game.py" ')
+start_over= input("Play Again? yes or no?: ")
+if start_over == 'no':
+    print("Goodbye")
+    exit()
+elif start_over == 'yes':
+    os.system('python3 "/Users/sam/sei/Labs/py_capitals/capitals_game.py" ')
+else:
+    print("Goodbye")
+    exit()
+
+
+   
+   
+   
+   
+   
+   
+   
         
     
     
